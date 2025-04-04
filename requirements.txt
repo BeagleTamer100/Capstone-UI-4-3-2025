@@ -1,4 +1,17 @@
-Flask==2.0.1
-pandas==1.3.3
-openpyxl==3.0.7
-gunicorn==20.1.0 
+wheel==0.42.0
+numpy==1.26.4
+pandas==2.1.4
+Flask==3.0.0
+openpyxl==3.1.2
+gunicorn==21.2.0
+Cython==0.29.24
+
+your-project/
+├── app.py
+├── requirements.txt
+├── gunicorn_config.py
+├── data/
+│   └── UI_sheet.xlsx
+└── templates/
+    ├── form.html
+    └── results.html

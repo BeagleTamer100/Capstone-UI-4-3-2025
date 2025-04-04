@@ -111,5 +111,23 @@ def submit():
         contract_advice=contract_advice
     )
 
+@app.route("/health")
+def health_check():
+    return {"status": "healthy"}, 200
+
+@app.errorhandler(Exception)
+def handle_error(e):
+    return render_template(
+        "error.html",
+        error=str(e)
+    ), 500
+
+@app.after_request
+def add_security_headers(response):
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    response.headers['X-XSS-Protection'] = '1; mode=block'
+    return response
+
 if __name__ == "__main__":
     app.run(debug=True)
